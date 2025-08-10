@@ -80,7 +80,7 @@ const fetchDiscounts = async () => {
         keyExtractor={(item) => item.id.toString()}
       />
       <TouchableOpacity onPress={handleApply} style={styles.applyBtn}>
-        <Text style={styles.applyText}>Apply</Text>
+        <Text style={styles.applyText}>Apply it</Text>
       </TouchableOpacity>
     </View>
   );
