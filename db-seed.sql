@@ -3,7 +3,19 @@ INSERT INTO users (username, email, password)
 VALUES 
 ('salman', 'salman.dev@sample.com', 'hashedpassword1'),
 ('essa', 'essa.khan@sample.com', 'hashedpassword2'),
-('Asemumer','was@gmail.com', '12');
+('Asemumer','was@gmail.com', '12'),
+('Asemumer','wass@gmail.com', '123'),
+('Asemumer','wasi@gmail.com', '1234'),
+('salmani', 'salmani.dev@sample.com', 'haaskakahedpassword1'),
+('essakhan', 'essakhan.khan@sample.com', 'hakkshedpassword2'),
+('Asemumerr','wasif@gmail.com', '122'),
+('Asemumerii','wassiff@gmail.com', '1234'),
+('Asemumeraj','wasid@gmail.com', '234'),
+('salmankk', 'salmaniik.dev@sample.com', 'hashidedpassword1'),
+('essaif', 'essakh.khan@sample.com', 'haishedpassword2'),
+('Asemumar','wasda@gmail.com', '22'),
+('Asemumur','wassid@gmail.com', '223'),
+('Asemumor','wasifif@gmail.com', '2234');
 
 
 INSERT INTO categories (category_name, category_description, image_url) VALUES
@@ -72,29 +84,29 @@ INSERT INTO drinks (restaurant_id, name, description, price, image_url, tag) VAL
 (2, 'Mango Smoothie', 'Sweet mango blended with yogurt.', 3.49, 'https://example.com/images/mango-smoothie.jpg', 'Healthy');
 
 
-INSERT INTO restaurant_customers (restaurant_id, name, email, phone) VALUES
-(1, 'John Doe', 'john.doe@example.com', '555-123-4567'),
-(2, 'Jane Smith', 'jane.smith@example.com', '555-987-6543'),
-(1, 'Michael Johnson', 'michael.j@example.com', '555-111-2222'),
-(3, 'Emily Davis', 'emily.d@example.com', '555-333-4444'),
-(2, 'Chris Wilson', 'chris.w@example.com', '555-555-6666'),
-(10, 'Jessica Brown', 'jessica.b@example.com', '555-777-8888'),
-(1, 'David Miller', 'david.m@example.com', '555-999-0000'),
-(12, 'Sarah Taylor', 'sarah.t@example.com', '555-456-7890'),
-(11, 'Robert Anderson', 'robert.a@example.com', '555-654-3210'),
-(3, 'Linda Thomas', 'linda.t@example.com', '555-123-9876'),
-(10, 'Paul White', 'paul.w@example.com', '555-234-5678'),
-(8, 'Karen Harris', 'karen.h@example.com', '555-345-6789'),
-(7, 'Mark Garcia', 'mark.g@example.com', '555-456-1234'),
-(7, 'Nancy Martinez', 'nancy.m@example.com', '555-567-8901'),
-(6, 'Steven Robinson', 'steven.r@example.com', '555-678-9012'),
-(5, 'Betty Clark', 'betty.c@example.com', '555-789-0123'),
-(4, 'Jeff Lewis', 'jeff.l@example.com', '555-890-1234'),
-(2, 'Lisa Hall', 'lisa.h@example.com', '555-901-2345'),
-(1, 'Brian Walker', 'brian.w@example.com', '555-012-3456'),
-(3, 'Maria Perez', 'maria.p@example.com', '555-112-2334');
+INSERT INTO restaurant_customers (restaurant_id, user_id,name, email, phone) VALUES
+(1,1, 'John Doe', 'john.doe@example.com', '555-123-4567'),
+(2, 2,'Jane Smith', 'jane.smith@example.com', '555-987-6543'),
+(1, 3,'Michael Johnson', 'michael.j@example.com', '555-111-2222'),
+(3, 4,'Emily Davis', 'emily.d@example.com', '555-333-4444'),
+(2, 5,'Chris Wilson', 'chris.w@example.com', '555-555-6666'),
+(10, 6,'Jessica Brown', 'jessica.b@example.com', '555-777-8888'),
+(1, 7,'David Miller', 'david.m@example.com', '555-999-0000'),
+(12, 8,'Sarah Taylor', 'sarah.t@example.com', '555-456-7890'),
+(11, 9,'Robert Anderson', 'robert.a@example.com', '555-654-3210'),
+(3, 11,'Linda Thomas', 'linda.t@example.com', '555-123-9876'),
+(10, 12,'Paul White', 'paul.w@example.com', '555-234-5678'),
+(8, 13,'Karen Harris', 'karen.h@example.com', '555-345-6789'),
+(7, 2,'Mark Garcia', 'mark.g@example.com', '555-456-1234'),
+(7, 3,'Nancy Martinez', 'nancy.m@example.com', '555-567-8901'),
+(6, 4,'Steven Robinson', 'steven.r@example.com', '555-678-9012'),
+(5, 5,'Betty Clark', 'betty.c@example.com', '555-789-0123'),
+(4, 4,'Jeff Lewis', 'jeff.l@example.com', '555-890-1234'),
+(2, 3,'Lisa Hall', 'lisa.h@example.com', '555-901-2345'),
+(1, 2,'Brian Walker', 'brian.w@example.com', '555-012-3456'),
+(3, 6,'Maria Perez', 'maria.p@example.com', '555-112-2334');
 
-INSERT INTO orders (customer_id, restaurant_id, total_amount, status) VALUES
+INSERT INTO orders (user_id, restaurant_id, total_amount, status) VALUES
 (1, 1, 8.48, 'Completed'),
 (2, 2, 21.49, 'Pending'),
 (3, 3, 13.74, 'Preparing'),
@@ -125,23 +137,69 @@ VALUES
 
 
 
-INSERT INTO order_items (order_id, item_id, quantity, note) VALUES
-(1, 1, 2, 'No onions'),
-(3, 3, 1, 'Extra cheese'),
-(2, 2, 1, NULL),
-(4, 4, 3, 'All spicy'),
-(5, 5, 1, 'No pickles'),
-(6, 1, 1, 'Well-done'),
-(7, 2, 1, 'With fries'),
-(6, 3, 2, NULL),
-(5, 4, 1, 'Lite salt'),
-(4, 6, 1, 'Side of ranch'),
-(3, 3, 2, NULL),
-(2, 3, 1, 'Extra olives'),
-(6, 5, 3, 'Sugar-free'),
-(1, 1, 1, 'Iced'),
-(5, 5, 2, NULL),
-(7, 1, 1, 'With avocado'),
-(2, 3, 1, NULL),
-(1, 4, 2, 'Crispy'),
-(2, 5, 1, 'No sauce');
+-- User 1 adds items from multiple restaurants
+
+-- Insert into basket
+INSERT INTO basket (user_id, item_id, restaurant_id, quantity, price, note) VALUES
+(1, 2, 1, 2, 12.50, 'Extra spicy'),
+(1, 4, 1, 1, 9.00, NULL),
+(2, 5, 2, 3, 7.99, 'No onions please'),
+(3, 7, 3, 1, 15.00, 'Gluten-free option'),
+(2, 6, 2, 2, 11.75, ''),
+(3, 3, 1, 1, 8.25, 'Less oil'),
+(1, 8, 1, 1, 6.50, 'Add cheese');
+
+
+
+-- Assuming users with id 1 and 2 already exist
+
+INSERT INTO delivery_options ( label)
+VALUES
+  ( 'Home'),
+  ( 'Office'),
+  ( 'Hostel Room 12'),
+  ( 'Friend’s Place');
+
+
+INSERT INTO payment_methods (label)
+VALUES
+  ('Google Pay'),
+  ('Apple Pay'),
+  ('PayPal'),
+  ('Cash on Delivery'),
+  ('Credit Card');
+
+
+INSERT INTO discounts (code, description, percentage)
+VALUES
+  ('WELCOME10', '10% off on your first order', 10),
+  ('FREESHIP', 'Free shipping on orders over $25', 100),
+  ('LUNCH15', '15% off lunch orders between 12-3 PM', 15),
+  ('SAVE5', 'Flat 5% off', 5);
+
+
+INSERT INTO delivery_addresses (
+  user_id, label, street, city, state, postal_code, country, full_address, is_default
+) VALUES
+-- Salman
+(1, 'Home', '123 Main Street', 'Karachi', 'Sindh', '74000', 'Pakistan', '123 Main Street, Karachi, Sindh, 74000', TRUE),
+(1, 'Work', '45 Business Road', 'Karachi', 'Sindh', '74010', 'Pakistan', '45 Business Road, Karachi, Sindh, 74010', FALSE),
+
+-- Essa
+(2, 'Home', '67 Sunset Avenue', 'Lahore', 'Punjab', '54000', 'Pakistan', '67 Sunset Avenue, Lahore, Punjab, 54000', TRUE),
+(2, 'Parents', '88 Garden Street', 'Lahore', 'Punjab', '54050', 'Pakistan', '88 Garden Street, Lahore, Punjab, 54050', FALSE),
+
+-- Asemumer
+(3, 'Home', '12 Model Town', 'Islamabad', 'ICT', '44000', 'Pakistan', '12 Model Town, Islamabad, ICT, 44000', TRUE),
+
+-- Asemumer (second account)
+(4, 'Home', '15 Green Street', 'Peshawar', 'KPK', '25000', 'Pakistan', '15 Green Street, Peshawar, KPK, 25000', TRUE);
+
+
+INSERT INTO order_items ( order_id, item_id, quantity, note)
+VALUES 
+(1, 1, 1, 'Extra cheese'),   -- Margherita Pizza
+(1, 2, 1, 'No mayo');        -- Veggie Burger
+
+-- Sample seed data for orders table
+

@@ -47,7 +47,7 @@ const updateCustomer = async (req, res) => {
 
   try {
     const customer = await pool.query(
-      'SELECT * FROM restaurant_customers WHERE customer_id = $1',
+      'SELECT * FROM restaurant_customers WHERE user_id = $1',
       [id]
     );
 
@@ -56,7 +56,7 @@ const updateCustomer = async (req, res) => {
     }
 
     await pool.query(
-      'UPDATE restaurant_customers SET name = $1, email = $2, phone = $3 WHERE customer_id = $4',
+      'UPDATE restaurant_customers SET name = $1, email = $2, phone = $3 WHERE user_id = $4',
       [name, email, phone, id]
     );
 
@@ -72,7 +72,7 @@ const deleteCustomer = async (req, res) => {
 
   try {
     const result = await pool.query(
-      'DELETE FROM restaurant_customers WHERE customer_id = $1',
+      'DELETE FROM restaurant_customers WHERE user_id = $1',
       [id]
     );
 

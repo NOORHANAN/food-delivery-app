@@ -26,18 +26,24 @@ export default function MenuItemDetail() {
     }
   };
 
-  const addToBasket = async () => {
-    try {
-      await axios.post(`${IP_ADDRESS}/orders`, {
-        item_id: id,
-        quantity,
-        note,
-      });
-      router.push("/orders");
-    } catch (error) {
-      console.log("Error adding to basket:", error);
+const addToBasket = async () => {
+  try {
+    await axios.post(`${IP_ADDRESS}/basket`, {
+      user_id: 1, // temporary hardcoded user
+      item_id: Number(id),
+      restaurant_id: item.restaurant_id,
+      quantity,
+      note,
+    });
+    router.push("/basket"); // optional: or show toast/success
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.log("Error response data:", error.response?.data);
     }
-  };
+    console.log("Error adding to basket:", error);
+  }
+};
+
 
   if (!item) return <Text style={styles.loading}>Loading...</Text>;
 
@@ -67,7 +73,7 @@ export default function MenuItemDetail() {
         <TouchableOpacity onPress={() => setQuantity(Math.max(1, quantity - 1))} style={styles.qtyBtn}>
           <Text style={styles.qtyText}>-</Text>
         </TouchableOpacity>
-        <Text style={styles.qtyText}>{quantity}</Text>
+         <Text style={[styles.qtyText, { color: "#000" }]}>{quantity}</Text>
         <TouchableOpacity onPress={() => setQuantity(quantity + 1)} style={styles.qtyBtn}>
           <Text style={styles.qtyText}>+</Text>
         </TouchableOpacity>
@@ -141,24 +147,30 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   qtyBtn: {
-    backgroundColor: "#ddd",
-    padding: 10,
-    borderRadius: 6,
+   
+    padding: 14,
+    borderRadius: 20,
     marginHorizontal: 10,
+    borderColor:"#ccc",
+     borderWidth: 1
   },
   qtyText: {
-    fontSize: 18,
+    fontSize: 30,
     fontWeight: "600",
+    color:"#1a974e",
+    marginHorizontal:10
+    
   },
   noteInput: {
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 8,
-    padding: 10,
+    padding: 30,
     marginBottom: 20,
   },
   addButton: {
     backgroundColor: "#1a974e",
+   marginTop:35,
     padding: 16,
     borderRadius: 12,
     alignItems: "center",

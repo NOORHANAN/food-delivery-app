@@ -7,23 +7,24 @@ const Orders = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetchCart();
+    fetchOrders();
   }, []);
 
-  const fetchCart = async () => {
+  const fetchOrders = async () => {
     try {
-      const res = await axios.get(`${IP_ADDRESS}/orders/cart`);
+      const user_id = 1; // Replace with dynamic ID later
+      const res = await axios.get(`${IP_ADDRESS}/orders/${user_id}`);
       setItems(res.data);
     } catch (err) {
-      console.log("Error fetching cart:", err);
+      console.log("Error fetching orders:", err);
     }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Your Basket</Text>
+      <Text style={styles.heading}>Your Orders</Text>
       {items.length === 0 ? (
-        <Text style={styles.emptyText}>No items in your basket</Text>
+        <Text style={styles.emptyText}>You have no orders yet</Text>
       ) : (
         <FlatList
           data={items}

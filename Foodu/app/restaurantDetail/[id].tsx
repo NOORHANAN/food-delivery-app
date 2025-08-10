@@ -60,7 +60,12 @@ export default function RestaurantDetail() {
           <Ionicons name="location" size={16} color="#1a974e" />
           <Text style={styles.subText}> 2.4 km  •  ${restaurant.delivery_fee} Delivery</Text>
         </View>
-        {restaurant.offers && <Text style={styles.offerText}> Offers are available</Text>}
+        {restaurant.offers && (
+  <TouchableOpacity onPress={() => router.push("/offers")}>
+    <Text style={styles.offerText}> Offers are available</Text>
+  </TouchableOpacity>
+)}
+
       </View>
 
       {/* For You - Horizontal Scroll */}
