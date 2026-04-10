@@ -1,6 +1,6 @@
 # Food Delivery App
 
-An amazing full-stack food delivery application built with React Native (Expo) frontend and Node.js + Express backend, using PostgreSQL as the database.
+A full-stack food delivery application built with React Native (Expo) frontend and Node.js + Express backend, using PostgreSQL as the database.
 
 ---
 
